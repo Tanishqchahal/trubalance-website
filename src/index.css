@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary-light: #E8DCC4;
+  --color-primary: #D4C5A9;
+  --color-primary-dark: #C4B599;
+  --color-accent: #1A1A1A;
+  --color-accent-light: #2D2D2D;
+  --color-background: #FAF8F5;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply m-0 font-sans text-accent-light bg-background antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif font-semibold text-accent;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-accent text-white font-medium rounded-md transition-all duration-300 hover:bg-accent-light focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 bg-transparent border-2 border-accent text-accent font-medium rounded-md transition-all duration-300 hover:bg-accent hover:text-white focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 active:scale-95;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
