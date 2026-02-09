@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Shield } from 'lucide-react';
+import { Mail, Phone, Clock, Send, CheckCircle2, AlertCircle, Shield } from 'lucide-react';
 
 
 interface FormData {
@@ -74,7 +74,7 @@ export default function Contact() {
         body: new URLSearchParams({
           'form-name': 'contact',
           ...formData,
-        } as any).toString(),
+        } as unknown as Record<string, string>).toString(),
       });
 
       if (response.ok) {
@@ -83,7 +83,7 @@ export default function Contact() {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -105,13 +105,13 @@ export default function Contact() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-stretch max-w-7xl mx-auto">
         {/* Contact Info Panel */}
-        <div className="lg:col-span-2 space-y-8 animate-fadeInUp delay-100">
-          <div className="glass-card p-10 bg-accent text-white h-full relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:scale-110 transition-transform"></div>
+        <div className="lg:col-span-1 space-y-8 animate-fadeInUp delay-100">
+          <div className="glass-card p-8 bg-accent text-white h-full relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform"></div>
             
-            <h3 className="text-3xl font-serif font-bold mb-8 relative z-10">Contact Information</h3>
+            <h3 className="text-2xl font-serif font-bold mb-10 relative z-10">Contact Information</h3>
             
             <div className="space-y-10 relative z-10">
               <div className="flex items-start space-x-6 group">
@@ -120,7 +120,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white/50 uppercase tracking-widest mb-1">Call Us</p>
-                  <p className="text-xl font-medium">+1 (555) 123-4567</p>
+                  <a href="tel:+19058727670"><p className="text-lg font-medium">+1 (905) 872-7670</p></a>
                 </div>
               </div>
 
@@ -130,31 +130,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-white/50 uppercase tracking-widest mb-1">Email Us</p>
-                  <p className="text-xl font-medium">info@trubalance.com</p>
+                  <a href="mailto:trubalancetax@gmail.com" className="hover:text-primary transition-colors">
+                    <p className="text-lg font-medium break-all">trubalancetax@gmail.com</p>
+                  </a>
                 </div>
               </div>
 
               <div className="flex items-start space-x-6 group">
                 <div className="bg-white/10 p-4 rounded-xl group-hover:bg-primary/20 transition-colors">
-                  <MapPin className="text-primary" size={24} />
+                  <Clock className="text-primary" size={24} />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white/50 uppercase tracking-widest mb-1">Our Office</p>
-                  <p className="text-xl font-medium">123 Financial District<br />Toronto, ON M5H 2N2</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-16 relative z-10 pt-10 border-t border-white/10">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
-                  <span className="text-xs font-bold">IN</span>
-                </div>
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
-                  <span className="text-xs font-bold">TW</span>
-                </div>
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors cursor-pointer">
-                  <span className="text-xs font-bold">FB</span>
+                  <p className="text-sm font-medium text-white/50 uppercase tracking-widest mb-1">Business Hours</p>
+                  <p className="text-lg font-medium">Mon — Fri: 9am - 6pm</p>
                 </div>
               </div>
             </div>
@@ -162,7 +150,7 @@ export default function Contact() {
         </div>
 
         {/* Form Panel */}
-        <div className="lg:col-span-3 animate-fadeInUp delay-200">
+        <div className="lg:col-span-2 animate-fadeInUp delay-200">
           <div className="glass-card p-10 bg-white shadow-premium border-gray-100">
             <form
               name="contact"

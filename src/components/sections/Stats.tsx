@@ -5,7 +5,7 @@ export default function Stats() {
         { 
             icon: Briefcase,
             value: '500+', 
-            label: 'Companies Served',
+            label: 'Customers Served',
             description: 'Across diverse industries'
         },
         { 

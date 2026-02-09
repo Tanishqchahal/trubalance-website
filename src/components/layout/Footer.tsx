@@ -22,17 +22,6 @@ export default function Footer() {
                         <p className="text-white/60 text-base leading-relaxed max-w-xs">
                             Providing elite tax preparation and accounting solutions with unparalleled precision and personalized care for visionary businesses.
                         </p>
-                        <div className="flex items-center space-x-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors border border-white/10">
-                                <Linkedin size={18} className="text-primary" />
-                            </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors border border-white/10">
-                                <Twitter size={18} className="text-primary" />
-                            </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary/20 transition-colors border border-white/10">
-                                <Facebook size={18} className="text-primary" />
-                            </a>
-                        </div>
                     </div>
 
                     {/* Quick Links */}
@@ -66,11 +55,11 @@ export default function Footer() {
                         <ul className="space-y-4">
                             <li className="flex items-center space-x-4 text-white/60">
                                 <Mail size={18} className="text-primary" />
-                                <span>info@trubalance.com</span>
+                                <span>trubalancetax@gmail.com</span>
                             </li>
                             <li className="flex items-center space-x-4 text-white/60">
                                 <Phone size={18} className="text-primary" />
-                                <span>+1 (555) 123-4567</span>
+                                <span>+1 (905) 872-7670</span>
                             </li>
                             <li className="text-white/60 pl-8 text-sm italic">
                                 Mon - Fri: 9:00 AM - 6:00 PM
@@ -100,10 +89,6 @@ export default function Footer() {
 
                 <div className="border-t border-white/10 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center text-white/40 text-sm">
                     <p>&copy; {currentYear} TruBalance Firm. All rights reserved.</p>
-                    <div className="flex space-x-8 mt-4 md:mt-0">
-                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-                    </div>
                 </div>
             </div>
         </footer>

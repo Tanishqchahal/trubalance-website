@@ -37,12 +37,12 @@ export default function Hero() {
                 </div>
                 
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-[1.1] animate-fadeInUp delay-100">
-                    Precision in every <br />
-                    <span className="text-primary italic">Financial</span> Detail
+                    Providing you with<br />
+                    <span className="text-primary italic">Seamless</span> Tax Preparation
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto font-light leading-relaxed animate-fadeInUp delay-200">
-                    Elevate your business with expert tax services tailored to your unique financial landscape. Built on trust, driven by care.
+                    Simplify Your Tax Season with TruBalance. Built on Trust, Driven by Care.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-fadeInUp delay-300">

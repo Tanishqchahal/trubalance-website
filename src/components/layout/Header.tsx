@@ -41,7 +41,7 @@ export default function Header() {
                                 TruBalance
                             </h1>
                             <p className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${isScrolled ? 'text-accent-muted' : 'text-primary'}`}>
-                                Trusted Accounting
+                                Tax and Accounting
                             </p>
                         </div>
                     </div>

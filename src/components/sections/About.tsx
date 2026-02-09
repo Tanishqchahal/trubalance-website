@@ -31,13 +31,13 @@ export default function About() {
                 <div className="order-1 lg:order-2 animate-fadeInUp delay-100">
                     <span className="text-primary font-semibold tracking-widest text-sm uppercase mb-4 block">Our Story</span>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-accent mb-8 leading-tight">
-                        Built on Integrity, <br /> Driven by <span className="text-primary italic">Result</span>
+                        Precision in Practice, <br /> Excellence in <span className="text-primary italic">Results</span>
                     </h2>
                     
                     <div className="space-y-6 text-soft text-lg mb-10">
                         <p>
                             At TruBalance, we believe that financial clarity is the foundation of business success. 
-                            With over 5 years of experience serving 500+ companies, we've built our reputation on 
+                            With over 5 years of experience serving 500+ customers, we've built our reputation on 
                             precision, integrity, and personalized service.
                         </p>
                         <p>
@@ -53,7 +53,7 @@ export default function About() {
                             </div>
                             <div>
                                 <h4 className="font-bold text-accent mb-1">Our Mission</h4>
-                                <p className="text-sm text-soft">Simplifying finance for visionary business owners.</p>
+                                <p className="text-sm text-soft">Simplifying finance for everyone.</p>
                             </div>
                         </div>
                         <div className="flex items-start space-x-4">
