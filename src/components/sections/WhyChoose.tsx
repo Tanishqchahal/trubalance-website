@@ -1,60 +1,65 @@
+import { Gem, Target, UserCheck, Settings2, Zap, Headphones } from 'lucide-react';
 import FeatureCard from '../ui/FeatureCard';
 
 export default function WhyChoose() {
     const features = [
         {
-            icon: '💎',
+            icon: Gem,
             title: 'Maximizing Tax Savings',
             description: 'We identify every deduction and credit to minimize your tax burden legally and ethically.',
         },
         {
-            icon: '🎯',
-            title: 'Strategic Tax Planning',
+            icon: Target,
+            title: 'Strategic Planning',
             description: 'Proactive planning strategies to optimize your financial position year-round.',
         },
         {
-            icon: '👤',
-            title: 'Personalized Accounting',
+            icon: UserCheck,
+            title: 'Personalized Care',
             description: 'Customized solutions tailored to your unique business needs and goals.',
         },
         {
-            icon: '🔧',
-            title: 'Comprehensive Financial Solutions',
+            icon: Settings2,
+            title: 'Financial Solutions',
             description: 'Full-spectrum services from bookkeeping to complex tax planning.',
         },
         {
-            icon: '⚡',
-            title: 'Proactive Tax Assistance',
+            icon: Zap,
+            title: 'Proactive Assistance',
             description: 'Year-round support and guidance to keep you ahead of tax deadlines.',
         },
         {
-            icon: '🤝',
+            icon: Headphones,
             title: 'Dedicated Support',
             description: 'A committed team always available to answer your questions and provide expert advice.',
         },
     ];
 
     return (
-        <section className="section-container bg-white">
-            <div className="text-center mb-16">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-accent mb-4">
-                    Why Choose TruBalance?
+        <section className="section-container bg-primary-light/10">
+            <div className="text-center mb-20 animate-fadeInUp">
+                <span className="text-primary font-semibold tracking-widest text-sm uppercase mb-4 block">Proven Performance</span>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-accent mb-6">
+                    Why TruBalance?
                 </h2>
-                <p className="text-lg text-accent-light max-w-2xl mx-auto">
-                    Experience the difference of working with dedicated tax professionals
+                <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+                <p className="text-xl text-soft max-w-2xl mx-auto font-light">
+                    Experience the precision and dedication of elite tax professionals
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 {features.map((feature, index) => (
-                    <FeatureCard
-                        key={index}
-                        icon={feature.icon}
-                        title={feature.title}
-                        description={feature.description}
-                    />
+                    <div key={index} className={`animate-fadeInUp delay-${(index % 3 + 1) * 100}`}>
+                        <FeatureCard
+                            icon={feature.icon}
+                            title={feature.title}
+                            description={feature.description}
+                        />
+                    </div>
                 ))}
             </div>
         </section>
     );
 }
+

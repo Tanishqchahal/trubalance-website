@@ -1,105 +1,76 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const scrollToSection = (sectionId: string) => {
         const element = document.getElementById(sectionId);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-            setIsMenuOpen(false);
+            const headerHeight = 80;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
     };
 
     return (
-        <header className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm shadow-sm z-50">
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass-nav py-2' : 'bg-transparent py-4'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center py-4">
+                <div className="flex justify-between items-center">
                     {/* Logo */}
-                    <div className="flex flex-col">
-                        <h1 className="text-2xl md:text-3xl font-serif font-bold text-accent">
-                            TruBalance
-                        </h1>
-                        <p className="text-xs text-accent-light">Trusted Accounting</p>
+                    <div className="flex items-center cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                        <img 
+                            src="/images/logo.png" 
+                            alt="TruBalance Logo" 
+                            className={`h-10 md:h-12 w-auto transition-all duration-300 ${isScrolled ? '' : 'brightness-0 invert'}`}
+                        />
+                        <div className="flex flex-col ml-3">
+                            <h1 className={`text-xl md:text-2xl font-serif font-bold transition-colors duration-300 ${isScrolled ? 'text-accent' : 'text-white'}`}>
+                                TruBalance
+                            </h1>
+                            <p className={`text-[10px] uppercase tracking-[0.2em] font-medium transition-colors duration-300 ${isScrolled ? 'text-accent-muted' : 'text-primary'}`}>
+                                Trusted Accounting
+                            </p>
+                        </div>
                     </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex space-x-8">
+                    <nav className="hidden md:flex items-center space-x-10">
                         <button
                             onClick={() => scrollToSection('about')}
-                            className="text-accent-light hover:text-accent transition-colors duration-200 font-medium"
+                            className={`transition-colors duration-200 font-medium ${isScrolled ? 'text-accent-light hover:text-accent' : 'text-white/90 hover:text-white'}`}
                         >
                             About
                         </button>
                         <button
                             onClick={() => scrollToSection('services')}
-                            className="text-accent-light hover:text-accent transition-colors duration-200 font-medium"
+                            className={`transition-colors duration-200 font-medium ${isScrolled ? 'text-accent-light hover:text-accent' : 'text-white/90 hover:text-white'}`}
                         >
                             Services
                         </button>
                         <button
                             onClick={() => scrollToSection('contact')}
-                            className="btn-primary"
+                            className={`${isScrolled ? 'btn-primary' : 'px-8 py-3 bg-white text-accent font-medium rounded-full hover:bg-primary-light transition-all'}`}
                         >
-                            Contact
+                            Get Started
                         </button>
                     </nav>
 
-                    {/* Mobile Menu Button */}
-                    <button
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="md:hidden p-2 text-accent hover:text-accent-light transition-colors"
-                        aria-label="Toggle menu"
-                    >
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                        >
-                            {isMenuOpen ? (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
-                            ) : (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
-                            )}
-                        </svg>
-                    </button>
                 </div>
-
-                {/* Mobile Menu */}
-                {isMenuOpen && (
-                    <nav className="md:hidden pb-4 space-y-3 animate-fadeIn">
-                        <button
-                            onClick={() => scrollToSection('about')}
-                            className="block w-full text-left px-4 py-2 text-accent-light hover:bg-primary-light rounded transition-colors"
-                        >
-                            About
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('services')}
-                            className="block w-full text-left px-4 py-2 text-accent-light hover:bg-primary-light rounded transition-colors"
-                        >
-                            Services
-                        </button>
-                        <button
-                            onClick={() => scrollToSection('contact')}
-                            className="block w-full text-left px-4 py-2 text-accent-light hover:bg-primary-light rounded transition-colors"
-                        >
-                            Contact
-                        </button>
-                    </nav>
-                )}
             </div>
         </header>
     );
 }
+
