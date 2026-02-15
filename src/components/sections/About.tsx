@@ -14,17 +14,6 @@ export default function About() {
                         alt="Professional accountant working"
                         className="rounded-2xl shadow-premium w-full h-auto relative z-10"
                     />
-                    <div className="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-lg z-20 border border-white/50 animate-fadeInUp delay-300">
-                        <div className="flex items-center space-x-4">
-                            <div className="bg-primary/20 p-3 rounded-lg">
-                                <ShieldCheck className="text-accent" size={32} />
-                            </div>
-                            <div>
-                                <p className="text-sm text-accent-muted uppercase tracking-wider font-bold">Verified Expertise</p>
-                                <p className="text-xl font-serif font-bold text-accent">99% Accuracy Rate</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 {/* Content */}
@@ -53,7 +42,7 @@ export default function About() {
                             </div>
                             <div>
                                 <h4 className="font-bold text-accent mb-1">Our Mission</h4>
-                                <p className="text-sm text-soft">Simplifying finance for everyone.</p>
+                                <p className="text-sm text-soft">Making tax and accounting simple, accurate, and stress‑free.</p>
                             </div>
                         </div>
                         <div className="flex items-start space-x-4">

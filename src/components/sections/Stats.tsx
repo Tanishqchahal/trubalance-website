@@ -10,7 +10,7 @@ export default function Stats() {
         },
         { 
             icon: Heart,
-            value: '99%', 
+            value: '100%', 
             label: 'Satisfaction Rate',
             description: 'Reflecting our dedication'
         },

@@ -66,25 +66,6 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-
-                    {/* Authority Signals */}
-                    <div className="bg-white/5 p-8 rounded-2xl border border-white/10">
-                        <div className="flex items-center space-x-3 mb-6">
-                            <Shield className="text-primary" size={24} />
-                            <h4 className="text-sm font-bold uppercase tracking-widest">Certified Partner</h4>
-                        </div>
-                        <p className="text-xs text-white/40 mb-4 leading-relaxed">
-                            TruBalance is a certified tax preparation firm, maintaining the highest standards of financial integrity and regulatory compliance.
-                        </p>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="h-8 bg-white/10 rounded flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-default opacity-50">
-                                <span className="text-[10px] font-bold">CPA CERTIFIED</span>
-                            </div>
-                            <div className="h-8 bg-white/10 rounded flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-default opacity-50">
-                                <span className="text-[10px] font-bold">TAX EXPERT</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div className="border-t border-white/10 mt-20 pt-10 flex flex-col md:flex-row justify-between items-center text-white/40 text-sm">

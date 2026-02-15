@@ -48,7 +48,7 @@ export default function Services() {
             <div className="relative z-10 text-center mb-20 animate-fadeInUp">
                 <span className="text-primary font-semibold tracking-widest text-sm uppercase mb-4 block">What We Offer</span>
                 <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-accent mb-6 leading-tight">
-                    Comprehensive <br /> Financial Expertise
+                    Comprehensive <br /> Tax & Accounting Expertise
                 </h2>
                 <div className="w-24 h-1 bg-primary mx-auto rounded-full mb-8"></div>
                 <p className="text-xl text-soft max-w-2xl mx-auto font-light">
