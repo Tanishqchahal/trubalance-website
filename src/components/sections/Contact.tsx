@@ -68,16 +68,22 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          ...formData,
-        } as unknown as Record<string, string>).toString(),
+      const formDataToSend = new FormData();
+      formDataToSend.append("access_key", "07d72ef2-cbd7-40c3-a6a5-083491a2e8df");
+      
+      // Add all fields from formData
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, value);
       });
 
-      if (response.ok) {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
@@ -153,15 +159,9 @@ export default function Contact() {
         <div className="lg:col-span-2 animate-fadeInUp delay-200">
           <div className="glass-card p-10 bg-white shadow-premium border-gray-100">
             <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
               className="space-y-8"
             >
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
