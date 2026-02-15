@@ -1,4 +1,4 @@
-import { ShieldCheck, Target, Users } from 'lucide-react';
+import {Target, Users } from 'lucide-react';
 
 export default function About() {
     return (
